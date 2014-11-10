@@ -2,14 +2,31 @@ Twit = require('twit');
 fs = require('fs');
 _ = require('underscore');
 
-function setupTwitter(config) {
-	var twitter = new Twit({
-	    consumer_secret: config.consumer_secret,
-	    consumer_key: config.consumer_key,
-	    access_token: config.access_token,
-	    access_token_secret: config.access_token_secret
-	});
-	return twitter;
+function setupTwitter() {
+
+	if ( 0 ) {
+	// if ( config && config.consumer_secret ) {
+
+		console.log('using config file for Twitter');
+		var twitter = new Twit({
+		    consumer_secret: config.consumer_secret,
+		    consumer_key: config.consumer_key,
+		    access_token: config.access_token,
+		    access_token_secret: config.access_token_secret
+		});
+		return twitter;
+
+	} else {
+
+		console.log('using ENV for Twitter.  Consumer Key = '+process.env.twitter_consumer_key);
+		var twitter = new Twit({
+		    consumer_secret: process.env.twitter_consumer_secret,
+		    consumer_key: process.env.twitter_consumer_key,
+		    access_token: process.env.twitter_access_token,
+		    access_token_secret: process.env.twitter_access_token_secret
+		});
+		return twitter;
+	}
 }
 
 function randomObject(tweets) {
@@ -120,7 +137,7 @@ function EvilBot(configFile) {
 	console.log('Created EvilBot');
 
 	var config = setupConfig(configFile);
-	var twitter = setupTwitter(config);
+	var twitter = setupTwitter();
 	var thisguy = {};
 
 	console.log('config='+JSON.stringify(config.keyword));
