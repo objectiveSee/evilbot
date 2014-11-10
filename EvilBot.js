@@ -19,6 +19,7 @@ function setupTwitter() {
 	} else {
 
 		console.log('using ENV for Twitter.  Consumer Key = '+process.env.twitter_consumer_key);
+		console.log('access_token='+process.env.twitter_access_token);
 		var twitter = new Twit({
 		    consumer_secret: process.env.twitter_consumer_secret,
 		    consumer_key: process.env.twitter_consumer_key,
