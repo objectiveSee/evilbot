@@ -296,8 +296,12 @@ function EvilBot(configFile) {
 				// console.log('['+limiter.getTokensRemaining()+'] Skipping tweet. Pending='+countPending);
 				return;
 			}
-			if ( tweet.user && tweet.user.id_str === config.user_id ) {
-				// console.log('Skipping you own tweet');
+			var username = getSafeUsername(tweet);
+			if ( username === config.user_id ) {
+				return;
+			}
+			if ( config.users_to_ignore && _.contains(config.users_to_ignore, username) ) {
+				console.log('ignoring tweet from @'+username);
 				return;
 			}
 
