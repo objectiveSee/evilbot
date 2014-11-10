@@ -1,46 +1,21 @@
+
+
+// Heroku requires a server (error if fail to bind to port in time)
+var express = require('express')
+var app = express();
+
+app.set('port', (process.env.PORT || 5000))
+// app.use(express.static(__dirname + '/public'))
+
+app.get('/', function(request, response) {
+  response.send('Hello World!')
+})
+
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
+
+
+// Configure Bot
 var b = require('./EvilBot.js')('./config.json');
-
-
-// b.test();
-
-// var params = {
-// 	q: 'hodor',
-// 	result_type: 'mixed',
-// 	lang: 'en'
-// };
-// b.retweet(params, function() {
-// 	console.log('done');
-// });
-// b.searchFollow(params, function(error, reply) {
-// 	console.log('done. Err='+error+'.  Reply='+reply);
-// });
-
 b.startStream();
-
-// for ( var i = 0 ; i < 32; i++ ) {
-// 	getCountHodors();
-// }
-
-// function buildHodor(times) {
-
-// 	var str = '';
-// 	for ( i = 0; i < times; i++ ) {
-// 		str += 'hodor';
-// 		if ( i < times - 1 ) {
-// 			str += ' ';
-// 		}
-// 	}
-// 	return str;
-// }
-
-
-// console.log(buildHodor(8)+'/');
-
-// function getCountHodors() {
-
-// 	var rand = _.random(1,32);
-// 	var f = Math.log(rand) / Math.LN2;
-// 	var g = 6 - Math.ceil(f);
-// 	console.log('r='+rand+'  \t g='+g);
-// 	return g;
-// }

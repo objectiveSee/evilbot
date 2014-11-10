@@ -2,7 +2,7 @@ Twit = require('twit');
 fs = require('fs');
 _ = require('underscore');
 var RateLimiter = require('limiter').RateLimiter;
-var limiter = new RateLimiter(1, 420000);
+var limiter = new RateLimiter(1, 420000);	
 
 
 function setupTwitter() {
@@ -308,7 +308,6 @@ function EvilBot(configFile) {
 			});
 		});
 	};
-
 	return thisguy;
 }
 
