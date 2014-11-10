@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "twit": "~1.1.11",
-    "underscore": ">=1.4.4"
+    "underscore": ">=1.4.4",
+    "limiter" : "1.0.5"
   }
 }
