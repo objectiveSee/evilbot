@@ -218,7 +218,7 @@ function replyHodor(T, tweet, callback) {
 
 	var params = {
 		status: status,
-		in_reply_to_status_id : tweet.id
+		in_reply_to_status_id : tweet.id_str
 	}
 
 	if ( ! params.in_reply_to_status_id ) {
@@ -300,6 +300,9 @@ function EvilBot(configFile) {
 				// console.log('Skipping you own tweet');
 				return;
 			}
+
+			// console.log(JSON.stringify(tweet));
+
 			var myTweetCount = ++tweetCount;
 			countPending++;
 			limiter.removeTokens(1, function(err, remainingRequests) {
