@@ -2,7 +2,7 @@ Twit = require('twit');
 fs = require('fs');
 _ = require('underscore');
 var RateLimiter = require('limiter').RateLimiter;
-var limiter = new RateLimiter(1, 780000);	// 780000 = 13 minutes
+var limiter = new RateLimiter(1, 420000);
 
 
 function setupTwitter() {
