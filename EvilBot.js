@@ -187,16 +187,18 @@ function buildHodor(times) {
 
 	var str = '';
 	for ( i = 0; i < times; i++ ) {
-		var rand = _.random(8);
+		var rand = _.random(17);
 		str += 'Hodor';
-		if ( rand < 1 ) {
+		if ( rand < 2 ) {
 			str += '?';
-		} else if ( rand < 2 ) {
+		} else if ( rand < 4 ) {
 			str += '!';
-		} else if ( rand < 3 ) {
+		} else if ( rand < 6 ) {
 			str += '!!';
-		} else if ( rand < 5 ) {
+		} else if ( rand < 10 ) {
 			str += '.';
+		} else if ( rand < 12 ) {
+			str += ',';
 		}
 
 		if ( i < times - 1 ) {
