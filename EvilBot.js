@@ -123,6 +123,8 @@ function EvilBot(configFile) {
 	var twitter = setupTwitter(config);
 	var thisguy = {};
 
+	console.log('config='+JSON.stringify(config.keyword));
+
 	thisguy.twitter = twitter;
 	thisguy.test = function() { test(twitter) };
 	thisguy.retweet = function(params,callback) {
@@ -132,13 +134,13 @@ function EvilBot(configFile) {
 		searchFollow(twitter, params, callback);
 	};
 	thisguy.startStream = function() {
-		console.log('starting stream...');
-		var stream = twitter.stream('statuses/filter', { track: 'evil apples', lang: 'en', });
+		console.log('starting stream ('+config.keyword+')...');
+		var stream = twitter.stream('statuses/filter', { track: config.keyword, lang: 'en', });
 		stream.on('tweet', function (tweet) {
 			// if ( tweet.media ) {
-  				// console.log(JSON.stringify(tweet.text));
+  				console.log(JSON.stringify(tweet.text));
   			// }
-  			favoriteTweet(twitter, tweet);
+  			// favoriteTweet(twitter, tweet);
 		});
 	};
 
