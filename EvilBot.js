@@ -2,7 +2,7 @@ Twit = require('twit');
 fs = require('fs');
 _ = require('underscore');
 var RateLimiter = require('limiter').RateLimiter;
-var limiter = new RateLimiter(1, 1000*60*3.3);	
+var limiter = new RateLimiter(1, 1000*60);	
 
 
 function setupTwitter() {
@@ -274,6 +274,7 @@ function respondToTweet(T, tweet) {
 }
 
 function EvilBot(configFile) {
+
 	console.log('Created EvilBot');
 
 	var config = setupConfig(configFile);
@@ -290,6 +291,7 @@ function EvilBot(configFile) {
 		searchFollow(twitter, params, callback);
 	};
 	thisguy.startStream = function() {
+
 		console.log('starting stream ('+config.keyword+')...');
 		var stream = twitter.stream('statuses/filter', { track: config.keyword, lang: 'en', });
 		stream.on('tweet', function (tweet) {
