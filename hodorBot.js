@@ -82,7 +82,7 @@ function HodorBot(configFile) {
 			bot.retweet(tweet); 
 		} else if ( r < 40 ) {
 			bot.favoriteTweet(tweet);
-		} else if ( r < 100 ) {
+		} else if ( r < 80 ) {
 			bot.followUser(tweet);
 		} else {
 			replyHodor(bot, tweet);

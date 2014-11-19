@@ -2,7 +2,6 @@ Twit = require('twit');
 fs = require('fs');
 _ = require('underscore');
 var RateLimiter = require('limiter').RateLimiter;
-var limiter = new RateLimiter(1, 1000*60*3);
 
 function setupTwitter() {
 
@@ -144,6 +143,7 @@ function EvilBot(configFile) {
 	var thisguy = {};
 	var tweetCount = 0;
 	var countPending = 0;
+	var limiter = new RateLimiter(1, 1000*60);
 
 	console.log('config='+JSON.stringify(config.keyword));
 

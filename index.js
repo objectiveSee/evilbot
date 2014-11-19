@@ -11,10 +11,9 @@ app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
 
-
-console.log('HELLO!!!!');
-
 // BOT!
 
-// var Hodor = require('./hodorBot.js')('./config.json');
-// Hodor.startStream();
+
+console.log('Hodor!');
+var Hodor = require('./hodorBot.js')('./config.json');
+Hodor.startStream();
