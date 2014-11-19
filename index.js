@@ -12,7 +12,7 @@ app.listen(app.get('port'), function() {
 });
 
 
-console.log('HELLO!');
+console.log('HELLO!!!!');
 
 // BOT!
 
