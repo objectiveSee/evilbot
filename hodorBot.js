@@ -71,6 +71,11 @@ function HodorBot(configFile) {
 		var r = _.random(200);
 		var rt = tweet.retweeted_status;
 		
+		var hodored = (tweet.text.indexOf('hodor') >= 0 );
+		if ( hodored ) {
+			return replyHodor(bot, tweet); 
+		}
+
 		if ( rt && false) {
 
 			if (( rt.retweet_count > 4 && rt.retweet_count < 20 ) || ( rt.favorite_count > 4 && rt.favorite_count < 20)) {
