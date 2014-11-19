@@ -14,5 +14,5 @@ app.listen(app.get('port'), function() {
 
 // BOT!
 
-var Hodor = require('./hodorBot.js')('./config.json');
-Hodor.startStream();
+// var Hodor = require('./hodorBot.js')('./config.json');
+// Hodor.startStream();
