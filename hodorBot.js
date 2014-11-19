@@ -70,8 +70,6 @@ function HodorBot(configFile) {
 
 		var r = _.random(200);
 		var rt = tweet.retweeted_status;
-
-		return bot.followUser(tweet);
 		
 		if ( rt && false) {
 
