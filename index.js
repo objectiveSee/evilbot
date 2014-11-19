@@ -12,6 +12,8 @@ app.listen(app.get('port'), function() {
 });
 
 
+console.log('HELLO!');
+
 // BOT!
 
 // var Hodor = require('./hodorBot.js')('./config.json');
